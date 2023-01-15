@@ -61,12 +61,12 @@ function draw () {
  if((ball_x<=paddle_x+paddle_width) &&
     (ball_x>=paddle_x) &&
     (ball_y+ball_diameter >= paddle_y+(paddle_height))){
-   ball_dy=-ball_dy;
+    ball_dy=-ball_dy;
  }
 
   if((ball_x<brick_x+brick_width) &&
     (ball_x>brick_x) &&
-    (ball_y+ball_diameter <= brick_y+(brick_height/2))){
+    (ball_y < brick_y+(brick_height/2))){
      brick_width=0;
      brick_height=0;
      score++;
@@ -74,7 +74,7 @@ function draw () {
  }
   textSize(20);
   fill(255);
-  text("Score:"+ score, score_x, score_y);
+  text("Score: "+ score, score_x, score_y);
   rect(brick_x, brick_y, brick_width, brick_height);
   circle(ball_x, ball_y, ball_diameter);
   rect(paddle_x, paddle_y, paddle_width, paddle_height);
