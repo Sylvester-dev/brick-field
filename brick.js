@@ -1,7 +1,8 @@
 let paddle_x, paddle_y, paddle_width, paddle_height, paddle_dx;
 let ball_x, ball_y, ball_diameter, ball_dx, ball_dy;
 let brick_x,brick_y,brick_width,brick_height;
-let ball_check;
+let score,score_x,score_y;
+
 function setup() {
   createCanvas(400, 400);
   background("black");
@@ -20,6 +21,9 @@ function setup() {
   brick_x=(width/2)-(brick_width/2);
   brick_height=20;
   brick_y=height/5;
+  score=0;
+  score_x=10;
+  score_y=25;
 
 
 }
@@ -65,9 +69,12 @@ function draw () {
     (ball_y+ball_diameter <= brick_y+(brick_height/2))){
      brick_width=0;
      brick_height=0;
+     score++;
 
  }
-
+  textSize(20);
+  fill(255);
+  text("Score:"+ score, score_x, score_y);
   rect(brick_x, brick_y, brick_width, brick_height);
   circle(ball_x, ball_y, ball_diameter);
   rect(paddle_x, paddle_y, paddle_width, paddle_height);
